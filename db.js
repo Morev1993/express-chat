@@ -1,7 +1,7 @@
-/*jshint esversion: 6 */
+"use strict";
 
 let co = require('co');
-let mongoose = require('./libs/mongoose');
+let mongoose = require('libs/mongoose');
 
 mongoose.set('debug', true);
 
@@ -20,14 +20,14 @@ function* createUsers() {
 
 	let userPromises = [
 	    { username: "Vasya", password: "secret1" },
-	    { username: "Petya", password: "secret2" },
+	    { username: "petya", password: "secret2" },
 	    { username: "Dno", password: "secret3" }
-  ].map(userData => {
+  	].map(userData => {
 	    let user = new User(userData);
 	    return user.save();
-  });
+  	});
 
-  let users = yield Promise.all(userPromises);
+  	let users = yield Promise.all(userPromises);
 
 	return users;
 }
@@ -50,4 +50,4 @@ co(function *() {
 	}
 
 	return "Done";
-}).then(value => console.log(value), err => console.log(err.stack));
+}).then(value => console.log("result is " + value), err => console.log(err.stack));
