@@ -34,6 +34,12 @@ app.use('/', routes);
 // development error handler
 // will print stacktrace
 
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
 app.use(function(err, req, res, next) {
   if (typeof err == 'number') {
     err = new HttpError(err);
