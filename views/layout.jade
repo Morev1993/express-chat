@@ -9,10 +9,18 @@ html
         ul.nav.nav-pills
           li.active
             a(href="/") Главная
+          - if (user) {
           li
-            a(href="/chat") Чат
+           a(href="/chat") Чат
+          - }
+
+          - if (!user) {
           li
             a(href="/login") Войти
+          - } else {
+          li
+            a( onclick="$('<form method=POST action=/logout>').submit();") Выйти
+          -  }
     main
       .container
         block content
