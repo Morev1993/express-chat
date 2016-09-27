@@ -4,4 +4,17 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header.jumbotron
+      div.container
+        ul.nav.nav-pills
+          li.active
+            a(href="/") Главная
+          li
+            a(href="/chat") Чат
+          li
+            a(href="/login") Войти
+    main
+      .container
+        block content
+    script(src="jquery.min.js")
+    script(src="main.js")

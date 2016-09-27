@@ -1,0 +1,17 @@
+{
+  "name": "express-site",
+  "description": "",
+  "main": "",
+  "authors": [
+    "i.morev <i.morev@cy.cardpay.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Morev1993/express-chat",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

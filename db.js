@@ -19,9 +19,7 @@ function* createUsers() {
 	yield new Promise((resolve, reject) => mongoose.models.User.on('index', resolve));
 
 	let userPromises = [
-	    { username: "Vasya", password: "secret1" },
-	    { username: "petya", password: "secret2" },
-	    { username: "Dno", password: "secret3" }
+	    { username: "Admin", password: "secret1" }
   	].map(userData => {
 	    let user = new User(userData);
 	    return user.save();
