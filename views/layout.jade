@@ -6,21 +6,28 @@ html
   body
     header.jumbotron
       div.container
-        ul.nav.nav-pills
-          li.active
-            a(href="/") Главная
-          - if (user) {
-          li
-           a(href="/chat") Чат
-          - }
+        - var active = currentUrl
 
-          - if (!user) {
-          li
-            a(href="/login") Войти
+        mixin item(title, url, logout)
+          - if (!logout) {
+          li(class=active == url ? 'active' : '')
+            a(href=url)= title
           - } else {
           li
-            a( onclick="$('<form method=POST action=/logout>').submit();") Выйти
-          -  }
+            a(class="logout" onclick="$('<form method=POST action=/logout>').submit();")= title
+          - }  
+
+
+        ul.nav.nav-pills
+          +item('Главная', '/')
+          - if (user) {
+          +item('Чат', '/chat')
+          - }
+          - if (!user) {
+          +item('Войти', '/login')
+          - } else {
+          +item('Выйти', '/logout', 'logout')
+          - }
     main
       .container
         block content
