@@ -77,4 +77,16 @@ app.use(function(err, req, res, next) {
 });
 
 
+/*var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
+server.listen(app.get('port'));*/
+
+/*io.on('connection', function (socket) {
+  socket.emit('news', { hello: 'world' });
+  socket.on('my other event', function (data) {
+    console.log(data);
+  });
+});*/
+
 module.exports = app;

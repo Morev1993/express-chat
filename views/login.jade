@@ -3,12 +3,14 @@ extends layout
 block content
   h1 Регистрация и вход
   p Введите имя пользователя и пароль. Если такого пользователя нет - он будет создан.
-  form.login-form
-    .form-group
-      label(for='name') Имя пользователя
-      input#name.form-control(type='text', placeholder='Имя', name='username' required)
-    .form-group
-      label(for='password') Пароль
-      input#password.form-control(type='password', placeholder='Пароль', name='password' required)
-    .error
-    button.btn.btn-primary(type='submit') Войти
+  .row
+    .col-md-6
+      form.login-form
+        .form-group
+          label(for='name') Имя пользователя
+          input#name.form-control(type='text', placeholder='Имя', name='username' required)
+        .form-group
+          label(for='password') Пароль
+          input#password.form-control(type='password', placeholder='Пароль', name='password' required)
+        .error
+        button.btn.btn-primary(type='submit') Войти

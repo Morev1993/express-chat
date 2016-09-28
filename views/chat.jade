@@ -2,4 +2,13 @@ extends layout
 
 block content
   h1 Чат
-  p Добро пожаловать, #{user}
+  p Добро пожаловать, #{user}.
+  
+  .row
+    .col-md-6
+      ul.messages
+      form.chat-form
+        .form-group
+          input(type="text" placeholder="Введите сообщение" required).form-control
+        .form-group
+          button.btn.btn-primary Отправить
