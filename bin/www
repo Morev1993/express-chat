@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('express-site:server');
 var http = require('http');
+
 /**
  * Get port from environment and store in Express.
  */
@@ -19,8 +20,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-
-var io = require('socket.io')(server);
+//io.set('logger', logger);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -29,15 +29,6 @@ var io = require('socket.io')(server);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-
-
-io.on('connection', function (socket) {
-  socket.on('message', function (data, cb) {
-    socket.broadcast.emit('message', data);
-
-    cb(data);
-  });
-});
 
 /**
  * Normalize a port into a number, string, or false.
@@ -98,3 +89,6 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+require('socket')(server);
